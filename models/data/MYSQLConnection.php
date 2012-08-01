@@ -67,15 +67,13 @@ class MYSQLConnection implements Connection {
     }
 
 
-    public function insertTwitterUser(TwitterUser $twitterUser) {
-        if ( isset($twitterUser)) {
-            $insertStatement = "INSERT INTO geotweets_user (id, name, screenname, description, geo_enabled, location) VALUES ('" . $twitterUser->getID() . "', '" . $twitterUser->getName() . "', '" . $twitterUser->getScreenName() . "', '" . $twitterUser->getDescription() . "', '" . $twitterUser->isGeoEnabled() . "', '" . $twitterUser->getLocation() . "');";
+    public function insertTwitterUser($twitterUser) {
+        $insertStatement = "INSERT INTO geotweets_user (id, name, screenname, description, geo_enabled, location) VALUES ('" . $twitterUser->getID() . "', '" . $twitterUser->getName() . "', '" . $twitterUser->getScreenName() . "', '" . $twitterUser->getDescription() . "', '" . $twitterUser->isGeoEnabled() . "', '" . $twitterUser->getLocation() . "');";
 
-            $insertStatementReturn = mysql_query($insertStatement);
+        $insertStatementReturn = mysql_query($insertStatement);
 
-            if (! $insertStatementReturn ) {
-                throw new Exception('Database user insert exception: ' . mysql_error());
-            }
+        if (! $insertStatementReturn ) {
+            throw new Exception('Database user insert exception: ' . mysql_error());
         }
     }
 
