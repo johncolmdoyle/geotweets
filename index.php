@@ -2,8 +2,10 @@
 require_once('config.php');
 require_once($ROOT_DIR . '/models/User.php');
 require_once($ROOT_DIR . '/models/TwitterUser.php');
+require_once($ROOT_DIR . '/models/UserFactory.php');
 require_once($ROOT_DIR . '/models/data/Connection.php');
 require_once($ROOT_DIR . '/models/data/TwitterConnection.php');
+require_once($ROOT_DIR . '/models/data/ConnectionFactory.php');
 ?>
 <html>
     <head>

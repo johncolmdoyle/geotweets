@@ -19,17 +19,10 @@ forearch($followerIDList as $twitterID) {
 
     $twitterUser = new TwitterUser();
     $twitterUser->setID($twitterID);
-    $twitterUser->setName($userResponse['name']);
-    $twitterUser->setDescription($userResponse['description']);
-    $twitterUser->setScreenName($userResponse['screenname']);
-    $twitterUser->setLocation($userResponse['location']);
-    $twitterUser->setGeoEnabled($userResponse['geo_enabled']);
-
-    printr($twitterUser->getID());
-    printr($twitterUser->getName());
-    printr($twitterUser->getDescription());
-    printr($twitterUser->getScreenName());
-    printr($twitterUser->getLocation());
-    printr($twitterUser->isGeoEnabled());
+    $twitterUser->setName($userResponse->name);
+    $twitterUser->setDescription($userResponse->description);
+    $twitterUser->setScreenName($userResponse->screenname);
+    $twitterUser->setLocation($userResponse->location);
+    $twitterUser->setGeoEnabled($userResponse->geo_enabled);
 }
 ?>

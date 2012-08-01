@@ -102,7 +102,7 @@ class TwitterConnection implements Connection {
         
     }
 
-    public function userLook($userID) {
+    public function userLookUp($userID) {
         $this->connection->request(
             'GET',
             $this->connection->url('1/users/lookup'),
