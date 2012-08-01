@@ -44,7 +44,7 @@ class MYSQLConnection implements Connection {
     }
 
     public function createConnection() {
-        $this->resource = mysql_connect($this->server, $this->username, $this->password);
+        $this->resource = mysql_connect($this->server, $this->user, $this->password);
 
         if (! $this->resource) {
            throw new Exception('Database resource exception: ' . mysql_error());
@@ -99,7 +99,7 @@ class MYSQLConnection implements Connection {
     }
 
     public function closeConnection() {
-        mysql_close($this->link);
+        mysql_close($this->resource);
     }
 }
 ?>
