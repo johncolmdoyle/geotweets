@@ -1,5 +1,5 @@
 <?php
-require_once('tmhOAuth.php');
+require_once($ROOT_DIR . '/models/data/tmhOAuth.php');
 
 class TwitterConnection implements Connection {
     // protected variables
