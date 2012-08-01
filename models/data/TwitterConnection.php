@@ -102,6 +102,25 @@ class TwitterConnection implements Connection {
         
     }
 
+    public function userLook($userID) {
+        $this->connection->request(
+            'GET',
+            $this->connection->url('1/users/lookup'),
+            array(
+                'user_id' => $userID,
+                'cursor' => $this->cursor
+            )
+        );
+
+        if ($this->isGoodResponse()) {
+            $this->setLimit();
+            return json_decode($this->connection->response['response'], true);
+        }
+        else {
+            throw new Exception('Twitter connection exception - bad response for userLookup:' + $this->connection->response['code']);
+        }
+
+    }
     
     public function closeConnection() {
         return true;

@@ -1,3 +1,10 @@
+<?php
+require_once('config.php');
+require_once($ROOT_DIR . '/models/User.php');
+require_once($ROOT_DIR . '/models/TwitterUser.php');
+require_once($ROOT_DIR . '/models/data/Connection.php');
+require_once($ROOT_DIR . '/models/data/TwitterConnection.php');
+?>
 <html>
     <head>
         <title>GeoTweets</title>
