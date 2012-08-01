@@ -52,7 +52,7 @@ class MYSQLConnection implements Connection {
 
         $this->connection = mysql_select_db($this->database, $this->resource);
 
-        f (! $this->connection) {
+        if (! $this->connection) {
            throw new Exception('Database connection exception: ' . mysql_error());
         } 
     }
