@@ -4,7 +4,34 @@ class TwitterUser implements User {
     protected $id;
     protected $name;
     protected $screenname;
+    protected $description;
+    protected $geoEnabled;
+    protected $location;
 
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function setDescription($description) {
+        $this->description = $description;
+    }
+
+    public function isGeoEnabled() {
+        return $this->geoEnabled;
+    }
+
+    public function setGeoEnabled($geoEnabled) {
+        $this->geoEnabled = $geoEnabled;
+    }
+
+    public function getLocation() {
+        return $this->location;
+    }
+
+    public function setLocation($location) {
+        $this->location = $location;
+    }
+    
     public function getID() {
         return $this->id;
     }

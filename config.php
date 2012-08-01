@@ -2,7 +2,7 @@
 
 /** MYSQL Details */
 $MYSQL_USERNAME = "";
-$MYSQL_HOST = "";
+$MYSQL_SERVER = "";
 $MYSQL_PASSWORD = "";
 $MYSQL_DATABASE = "";
 
