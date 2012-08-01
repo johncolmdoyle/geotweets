@@ -17,22 +17,30 @@ $mysql->setDatabase($MYSQL_DATABASE);
 $twitter->createConnection();
 $mysql->createConnection();
 
+$followerResponse = array();
 $followerResponse = $twitter->getFollowers($_POST["screenname"]);
 
 $followerIDList = $followerResponse['ids'];
 
 forearch($followerIDList as $twitterID) {
+
+    $userResponse = array();
     $userResponse = $twitter->userLookup($twitterID);
 
-    $twitterUser = new TwitterUser();
-    $twitterUser->setID($twitterID);
-    $twitterUser->setName($userResponse->name);
-    $twitterUser->setDescription($userResponse->description);
-    $twitterUser->setScreenName($userResponse->screenname);
-    $twitterUser->setLocation($userResponse->location);
-    $twitterUser->setGeoEnabled($userResponse->geo_enabled);
+    foreach($userResponse as $userObject ) {
 
-    $mysql->insertTwitterUser($twitterUser);
+        $twitterUser = new TwitterUser();
+        $twitterUser->setID($twitterID);
+        $twitterUser->setName($userObject['name']);
+        $twitterUser->setDescription($userObject['description']);
+        $twitterUser->setScreenName($userObject['screen_name']);
+        $twitterUser->setLocation($userObject['location']);
+        $twitterUser->setGeoEnabled($userObject['geo_enabled']);
+
+        $mysql->insertTwitterUser($twitterUser);
+
+    }
+
 }
 
 $mysql->closeConnection();

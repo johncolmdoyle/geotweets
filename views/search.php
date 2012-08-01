@@ -3,7 +3,7 @@
     <h1>Geotweets</h1>
 <?php
 
-include($ROOT_DIT . '/controllers/getFollowers.php');
+include($ROOT_DIR . '/controllers/getFollowers.php');
 
 ?>
 </div>

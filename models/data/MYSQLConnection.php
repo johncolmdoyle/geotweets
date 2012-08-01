@@ -68,7 +68,7 @@ class MYSQLConnection implements Connection {
 
 
     public function insertTwitterUser($twitterUser) {
-        $insertStatement = "INSERT INTO geotweets_user (id, name, screenname, description, geo_enabled, location) VALUES ('" . $twitterUser->getID() . "', '" . $twitterUser->getName() . "', '" . $twitterUser->getScreenName() . "', '" . $twitterUser->getDescription() . "', '" . $twitterUser->isGeoEnabled() . "', '" . $twitterUser->getLocation() . "');";
+        $insertStatement = "INSERT INTO geotweets_user (id, name, screenname, description, geo_enabled, location) VALUES ('" . mysql_real_escape_string($twitterUser->getID()) . "', '" . mysql_real_escape_string($twitterUser->getName()) . "', '" . mysql_real_escape_string($twitterUser->getScreenName()) . "', '" . mysql_real_escape_string($twitterUser->getDescription()) . "', '" . mysql_real_escape_string($twitterUser->isGeoEnabled()) . "', '" . mysql_real_escape_string($twitterUser->getLocation()) . "');";
 
         $insertStatementReturn = mysql_query($insertStatement);
 
