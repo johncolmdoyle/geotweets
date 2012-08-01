@@ -7,14 +7,14 @@ require_once($ROOT_DIR . '/models/data/TwitterConnection.php');
 $connectionFactory = new ConnectionFactory();
 $twitter = $connectionFactory->newConnection('twitter');
 
-$twitter->setConsumerKey($TWITTER_CONSUMERKEY);
-$twitter->setConsumerSecret($TWITTER_CONSUMERSECRET);
-$twitter->setUserToken($TWITTER_USERTOKEN);
-$twitter->setUserSecret($TWITTER_USERSECRET);
+$twitter->setConsumerKey($TWITTER_CONSUMER_KEY);
+$twitter->setConsumerSecret($TWITTER_CONSUMER_SECRET);
+$twitter->setUserToken($TWITTER_USER_TOKEN);
+$twitter->setUserSecret($TWITTER_USER_SECRET);
 
 $twitter->createConnection();
 
-print_r($twitter->getFollowers('SCREENNAME'));
+print_r($twitter->getFollowers('Art_Wolf'));
 
 $twitter->closeConnection();
 
